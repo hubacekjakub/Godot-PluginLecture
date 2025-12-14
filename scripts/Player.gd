@@ -58,3 +58,7 @@ func get_hurt(value):
 
 func collect_coins(value):
 	PlayerState.add_coins(value)
+
+func collect_book():
+	PlayerState.add_book()
+
