@@ -2,10 +2,8 @@ extends Area2D
 
 var collected = false
 
-func _ready():
-	area_entered.connect(_on_area_entered)
-
-func _on_area_entered(area):
+func _on_area_entered(area: Area2D) -> void:
+	print("collected")
 	if collected:
 		return
 		
@@ -18,6 +16,8 @@ func _on_area_entered(area):
 			$Closed.hide()
 			$Opened.show()
 			
-			# Wait for 2 seconds then disappear
-			await get_tree().create_timer(2.0).timeout
+			$CanvasLayer.show()
+			await get_tree().create_timer(1.0).timeout
+			$CanvasLayer.hide()
+			await get_tree().create_timer(1.0).timeout
 			queue_free()

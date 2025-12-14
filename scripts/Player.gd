@@ -61,4 +61,3 @@ func collect_coins(value):
 
 func collect_book():
 	PlayerState.add_book()
-
