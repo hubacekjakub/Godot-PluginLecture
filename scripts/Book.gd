@@ -1,6 +1,19 @@
+@tool
 extends Area2D
 
+@export var debug_open: bool = false:
+	set(value):
+		debug_open = value
+		if Engine.is_editor_hint():
+			_update_sprites()
+
 var collected = false
+
+func _update_sprites() -> void:
+	if has_node("Closed") and has_node("Opened"):
+		$Closed.visible = !debug_open
+		$Opened.visible = debug_open
+
 
 func _on_area_entered(area: Area2D) -> void:
 	print("collected")
